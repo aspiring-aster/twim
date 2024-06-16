@@ -13,7 +13,7 @@ jobs:
       - name: Generate
         run: |
           nimble install -d -y
-          nimble docs
+          nimble doc src/xnim.nim --outdir:./htmldocs --project
       - name: Update Docs
         uses: crazy-max/ghaction-github-pages@v4.0.0
         with:
