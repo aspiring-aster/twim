@@ -3,7 +3,7 @@ import ../utils/xapi
 
 const TWEET_ENDPOINT*: string = "https://api.twitter.com/2/tweets"
 
-proc PostTextTweet*(xAPI: XAPI, text: string): void =
+proc PostTextTweet*(xAPI: XAPI, text: string): string =
   let client: HttpClient = newHttpClient()
   let AUTH_STRING: string =
     fmt"OAuth oauth_consumer_key={xAPI.consumerKey}," &
@@ -20,5 +20,11 @@ proc PostTextTweet*(xAPI: XAPI, text: string): void =
   let body = %*{
     "text": &"{text}"
   }
-  let response = client.request(TWEET_ENDPOINT, httpMethod = HttpPost, body = $body)
 
+  var response: Response
+  try:
+    response = client.request(TWEET_ENDPOINT,
+        httpMethod = HttpPost, body = $body)
+  finally:
+    client.close()
+  return response.body

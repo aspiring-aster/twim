@@ -1,8 +1,10 @@
 import ../src/xnim
 
 when isMainModule:
-  const API_KEY: string = "PUT API KEY HERE"
-  const OAUT_TOKEN: string = "PUT ACCESS TOKEN HERE "
+  const API_KEY: string = "APIKEY"
+  const OAUT_TOKEN: string = "OAUT_TOKEN"
 
   const xCli: XAPI = newXAPI(API_KEY, OAUT_TOKEN)
-  PostTextTweet(xCli, "post this")
+  let res: string = xCli.PostTextTweet("From X.nim")
+  echo res
+
