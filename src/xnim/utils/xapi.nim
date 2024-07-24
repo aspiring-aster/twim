@@ -1,8 +1,10 @@
 type
   XAPI* = object
     consumerKey*: string
-    oauthToken*: string
+    consumerSecret*: string
+    accessToken*: string
+    tokenSecret*: string
 
-proc newXAPI*(consumer_key: string, oauth_token: string): XAPI =
-  return XAPI(consumerKey: consumer_key, oauthToken: oauth_token)
+proc newXAPI*(consumer_key: string, consumer_secret: string, access_token: string, token_secret: string): XAPI =
+  return XAPI(consumerKey: consumer_key, consumerSecret: consumerSecret, accessToken: access_token, tokenSecret: token_secret)
 
