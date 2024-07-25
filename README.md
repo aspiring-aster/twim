@@ -8,6 +8,13 @@ This uses OAuth 1.0a.
 ## Endpoints supported:
 - POST /v2/tweets
 
+## Install
+```Bash
+git clone https://github.com/aspiring-aster/x.nim.git
+cd x.nim
+nimble install
+```
+
 ## Example
 ```Nim
 import xnim
