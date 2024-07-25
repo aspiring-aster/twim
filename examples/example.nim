@@ -1,10 +1,19 @@
 import ../src/xnim
 
 when isMainModule:
-  const API_KEY: string = "APIKEY"
-  const OAUT_TOKEN: string = "OAUT_TOKEN"
 
-  const xCli: XAPI = newXAPI(API_KEY, OAUT_TOKEN)
-  let res: string = xCli.PostTextTweet("From X.nim")
+  # This is API Key
+  const CONSUMER_KEY: string = "CONSUMERKEY"
+
+  # This is the API secret key
+  const CONSUMER_SECRET: string = "CONSUMERSECRET"
+
+  # This is the Authentication Access Token
+  const ACCESS_TOKEN: string = "ACCESSTOKEN"
+
+  # This is the Authentication Access Secret
+  const TOKEN_SECRET: string = "TOKENSECRET"
+
+  const xCli: XAPI = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET)
+  let res: string = xCli.PostTextTweet("Hello from X.nim!")
   echo res
-

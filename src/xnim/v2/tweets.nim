@@ -14,8 +14,6 @@ proc percentEncode(s: string): string =
       result.add('%')
       result.add(toHex(ord(c), 2))
 
-# Example usage
-echo percentEncode("Hello World!") # Output: Hello%20World%21
 
 # Random string for oauth_nonce
 proc OauthNonce(): string =
@@ -28,13 +26,9 @@ proc OauthNonce(): string =
 proc OauthSignature(xAPI: XAPI, text: string, oAuthNonce: string, timeStamp: int):string =
   # Follow https://developer.x.com/en/docs/authentication/oauth-1-0a/creating-a-signature
   # For now, hard code POST as HTTP method
-  #
-
   var outputString:string =
     fmt"POST&"&
     &"{percentEncode(TWEET_ENDPOINT)}&"
-
-  echo "outputString : " & outputString
 
   var paramString:string =
     fmt"oauth_consumer_key={xAPI.consumerKey}&"&
@@ -46,7 +40,6 @@ proc OauthSignature(xAPI: XAPI, text: string, oAuthNonce: string, timeStamp: int
     # &"status={text}"
 
   paramString = percentEncode(paramString)
-  echo "paramString : " & paramString
 
   var signatureBase = outputString & paramString
 
@@ -54,7 +47,6 @@ proc OauthSignature(xAPI: XAPI, text: string, oAuthNonce: string, timeStamp: int
   signatureBase = signatureBase.replace("+", "%20")
   signatureBase = signatureBase.replace("%7E", "~")  # Don't encode ~
 
-  echo "SignatureBase: " & signatureBase
 
   var signingKey:string =
     fmt"{xAPI.consumerSecret}&{xAPI.tokenSecret}"
@@ -79,7 +71,6 @@ proc PostTextTweet*(xAPI: XAPI, text: string): string =
     &"oauth_version=\"1.0\"," &
     &"oauth_signature=\"{oauthSignature}\""
 
-  echo AUTH_STRING
   client.headers = newHttpHeaders({"Content-Type": "application/json",
     "authorization": AUTH_STRING})
   let body = %*{
