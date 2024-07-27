@@ -1,6 +1,7 @@
 import xnim/utils/xapi,
-       xnim/v2/tweets
+       xnim/v2/tweets,
+       xnim/v1_1/media
 
 
 
-export xapi, tweets
+export xapi, tweets, media
