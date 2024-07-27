@@ -6,7 +6,8 @@ Be aware I only free-tier API access to the X API so I will only develop for tho
 This uses OAuth 1.0a.
 
 ## Endpoints supported:
-- POST /v2/tweets
+- POST v2/tweets
+- POST media/upload
 
 ## Install
 ```Bash
@@ -42,7 +43,6 @@ when isMainModule:
 - [nimcrypto](https://github.com/cheatfate/nimcrypto) - For SHA1-HMAC encoding to encode signature
 
 ## RoadMap:
-- [ ] POST /media/upload
 - [ ] Add a better way to read credentials
 - [ ] Expand POST /v2/tweets
 - [ ] Maybe look into basic tier endpoints
