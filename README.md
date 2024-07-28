@@ -38,6 +38,7 @@ when isMainModule:
   let res: string = xCli.PostTextTweet("Hello from X.nim!")
   echo res
 ```
+Look at the [OMORI upscale bot](https://github.com/aspiring-aster/omori-upscale-bot-v2/tree/main) as an example for how to use this API to deploy a bot on Twitter.
 
 ## Dependencies 
 - [nimcrypto](https://github.com/cheatfate/nimcrypto) - For SHA1-HMAC encoding to encode signature
