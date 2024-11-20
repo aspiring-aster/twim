@@ -44,6 +44,11 @@ Look at the [OMORI upscale bot](https://github.com/aspiring-aster/omori-upscale-
 - [nimcrypto](https://github.com/cheatfate/nimcrypto) - For SHA1-HMAC encoding to encode signature
 
 ## RoadMap:
-- [ ] Add a better way to read credentials
-- [ ] Expand POST /v2/tweets
-- [ ] Maybe look into basic tier endpoints
+- [ ] Add support for /tweets endpoints
+- [ ] Add support for quote tweets
+- [ ] Add suport for liking_users
+- [ ] Add support for liked_tweets
+- [ ] Add support for mentions
+- [ ] Add get for users
+- [ ] Support for /spaces endpoint
+- [ ] And a bunch of other stuff listed [here](https://developer.x.com/en/portal/products/free)
