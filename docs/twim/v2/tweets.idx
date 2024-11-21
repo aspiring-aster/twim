@@ -1,5 +1,5 @@
 nimTitle	tweets	twim/v2/tweets.html	module src/twim/v2/tweets		0
 nim	TWEET_ENDPOINT	twim/v2/tweets.html#TWEET_ENDPOINT	const TWEET_ENDPOINT		4
 nim	PostTextTweet	twim/v2/tweets.html#PostTextTweet,XAPI,string	proc PostTextTweet(xAPI: XAPI; text: string): string		6
-nim	PostTextTweet	twim/v2/tweets.html#PostTextTweet,XAPI,string,seq[string]	proc PostTextTweet(xAPI: XAPI; text: string; media_ids: seq[string]): string		35
+nim	PostTextTweet	twim/v2/tweets.html#PostTextTweet,XAPI,string,seq[string]	proc PostTextTweet(xAPI: XAPI; text: string; media_ids: seq[string]): string		25
 nimgrp	Posttexttweet	twim/v2/tweets.html#PostTextTweet-procs-all	proc		6
