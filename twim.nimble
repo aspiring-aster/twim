@@ -1,6 +1,6 @@
 # Package
 
-version = "0.1.0"
+version = "0.0.1"
 author = "aspiring-aster"
 description = "A X(Formally known as Twitter) API wrapper library for Nim."
 license = "MIT"
