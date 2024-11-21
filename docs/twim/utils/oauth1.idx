@@ -1,0 +1,3 @@
+nimTitle	oauth1	twim/utils/oauth1.html	module src/twim/utils/oauth1		0
+nim	OauthNonce	twim/utils/oauth1.html#OauthNonce	proc OauthNonce(): string		16
+nim	OauthSignature	twim/utils/oauth1.html#OauthSignature,XAPI,string,string,string,string,int	proc OauthSignature(xAPI: XAPI; httpMethod: string; endpoint: string; text: string;\n               oAuthNonce: string; timeStamp: int): string		22

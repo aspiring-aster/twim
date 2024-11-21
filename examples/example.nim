@@ -1,4 +1,4 @@
-import ../src/xnim
+import ../src/twim
 
 when isMainModule:
 
@@ -15,5 +15,5 @@ when isMainModule:
   const TOKEN_SECRET: string = "TOKENSECRET"
 
   const xCli: XAPI = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET)
-  let res: string = xCli.PostTextTweet("Hello from X.nim!")
+  let res: string = xCli.PostTextTweet("Hello from twim!")
   echo res

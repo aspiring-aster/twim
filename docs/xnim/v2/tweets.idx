@@ -1,3 +1,0 @@
-nimTitle	tweets	xnim/v2/tweets.html	module src/xnim/v2/tweets		0
-nim	TWEET_ENDPOINT	xnim/v2/tweets.html#TWEET_ENDPOINT	const TWEET_ENDPOINT		4
-nim	PostTextTweet	xnim/v2/tweets.html#PostTextTweet,XAPI,string	proc PostTextTweet(xAPI: XAPI; text: string): void		6

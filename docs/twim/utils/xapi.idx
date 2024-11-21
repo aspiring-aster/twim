@@ -1,0 +1,3 @@
+nimTitle	xapi	twim/utils/xapi.html	module src/twim/utils/xapi		0
+nim	XAPI	twim/utils/xapi.html#XAPI	object XAPI		2
+nim	newXAPI	twim/utils/xapi.html#newXAPI,string,string,string,string	proc newXAPI(consumer_key: string; consumer_secret: string; access_token: string;\n        token_secret: string): XAPI		8

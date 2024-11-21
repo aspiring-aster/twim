@@ -1,3 +1,0 @@
-nimTitle	xapi	xnim/utils/xapi.html	module src/xnim/utils/xapi		0
-nim	XAPI	xnim/utils/xapi.html#XAPI	object XAPI		2
-nim	newXAPI	xnim/utils/xapi.html#newXAPI,string,string	proc newXAPI(consumer_key: string; oauth_token: string): XAPI		6
