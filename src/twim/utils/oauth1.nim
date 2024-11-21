@@ -1,4 +1,4 @@
-import std/[strformat,random,strutils, base64]
+import std/[strformat, random, strutils, base64, times]
 import ../utils/xapi
 import nimcrypto
 
@@ -13,25 +13,25 @@ proc percentEncode(s: string): string =
       result.add(toHex(ord(c), 2))
 
 # Random string for oauth_nonce
-proc OauthNonce*(): string =
+proc OauthNonce(): string =
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
   result = ""
   for _ in 0 .. 10:
     result.add(alphabet[rand(alphabet.high)])
 
-proc OauthSignature*(xAPI: XAPI, httpMethod:string, endpoint:string, text: string, oAuthNonce: string, timeStamp: int):string =
+proc OauthSignature(xAPI: XAPI, httpMethod: string, endpoint: string,
+    text: string, oAuthNonce: string, timeStamp: int): string =
   # Follow https://developer.x.com/en/docs/authentication/oauth-1-0a/creating-a-signature
-  #
-  var outputString:string =
-    fmt"{httpMethod}&"&
+  var outputString: string =
+    fmt"{httpMethod}&" &
     &"{percentEncode(endpoint)}&"
 
-  var paramString:string =
-    fmt"oauth_consumer_key={xAPI.consumerKey}&"&
-    &"oauth_nonce={oAuthNonce}&"&
-    &"oauth_signature_method=HMAC-SHA1&"&
-    &"oauth_timestamp={timeStamp}&"&
-    &"oauth_token={xAPI.accessToken}&"&
+  var paramString: string =
+    fmt"oauth_consumer_key={xAPI.consumerKey}&" &
+    &"oauth_nonce={oAuthNonce}&" &
+    &"oauth_signature_method=HMAC-SHA1&" &
+    &"oauth_timestamp={timeStamp}&" &
+    &"oauth_token={xAPI.accessToken}&" &
     &"oauth_version=1.0"
 
   paramString = percentEncode(paramString)
@@ -40,11 +40,30 @@ proc OauthSignature*(xAPI: XAPI, httpMethod:string, endpoint:string, text: strin
 
 
   signatureBase = signatureBase.replace("+", "%20")
-  signatureBase = signatureBase.replace("%7E", "~")  # Don't encode ~
+  signatureBase = signatureBase.replace("%7E", "~") # Don't encode ~
 
 
-  var signingKey:string = fmt"{xAPI.consumerSecret}&{xAPI.tokenSecret}"
+  var signingKey: string = fmt"{xAPI.consumerSecret}&{xAPI.tokenSecret}"
 
   let hmac = sha1.hmac(signingKey, signatureBase)
   result = base64.encode(hmac.data)
   result = percentEncode(result)
+
+proc generateOauthAuthString*(xapi: XAPI, endpoint: string,
+    content: string): string =
+  var oauthNonce: string = OauthNonce()
+  var timeStamp: int = toInt(epochTime())
+  var oauthSignature: string = OauthSignature(xApi, "POST", endpoint, content,
+      oauthNonce, timeStamp)
+
+  result =
+    &"OAuth oauth_consumer_key=\"{xAPI.consumerKey}\"," &
+    &"oauth_token=\"{xAPI.accessToken}\"," &
+    &"oauth_signature_method=\"HMAC-SHA1\"," &
+    &"oauth_timestamp=\"{timeStamp}\"," &
+    &"oauth_nonce=\"{oauthNonce}\"," &
+    &"oauth_version=\"1.0\"," &
+    &"oauth_signature=\"{oauthSignature}\""
+
+
+

@@ -3,3 +3,4 @@ nimblecache/
 htmldocs/
 shell.nix
 examples/example
+examples/myexample*
