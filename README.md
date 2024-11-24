@@ -50,4 +50,5 @@ Look at the [OMORI upscale bot](https://github.com/aspiring-aster/omori-upscale-
 ## RoadMap:
 
 - Look at the [GitHub Project](https://github.com/users/aspiring-aster/projects/1?query=is%3Aopen+sort%3Aupdated-desc)
-- If there's any feature you'd like to see. Please make an issue :)
+- All progress will be on  [unstable](https://github.com/aspiring-aster/twim/tree/unstable) until the issue is completed
+- If there's any feature you'd like to see, please submit an issue 😄
