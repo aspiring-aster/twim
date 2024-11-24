@@ -2,7 +2,7 @@
 
 A X(Formally known as Twitter) API wrapper library for Nim. Inspired by [Tweepy](https://www.tweepy.org/) and [twitter.nim](https://github.com/snus-kin/twitter.nim).
 
-Be aware I only have free-tier API access to the X API so I will only develop for those endpoints.
+Be aware I only have free-tier API access to the X API so I will only develop for those [endpoints](https://developer.x.com/en/docs/x-api/migrate/x-api-endpoint-map).
 
 This uses OAuth 1.0a.
 
