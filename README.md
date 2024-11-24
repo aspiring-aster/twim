@@ -49,12 +49,5 @@ Look at the [OMORI upscale bot](https://github.com/aspiring-aster/omori-upscale-
 
 ## RoadMap:
 
-- [ ] Add support for /tweets endpoints
-- [ ] Add support for quote tweets
-- [ ] Add suport for liking_users
-- [ ] Add support for liked_tweets
-- [ ] Add support for mentions
-- [ ] Add get for users
-- [ ] Support for /spaces endpoint
-- [ ] And a bunch of other stuff listed [here](https://developer.x.com/en/portal/products/free)
-
+- Look at the [GitHub Project](https://github.com/users/aspiring-aster/projects/1?query=is%3Aopen+sort%3Aupdated-desc)
+- If there's any feature you'd like to see. Please make an issue :)
