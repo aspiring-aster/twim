@@ -12,8 +12,8 @@ proc percentEncode(s: string): string =
       result.add('%')
       result.add(toHex(ord(c), 2))
 
-# Random string for oauth_nonce
 proc OauthNonce(): string =
+  ## Random string for oauth_nonce
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
   result = ""
   for _ in 0 .. 10:
@@ -21,8 +21,8 @@ proc OauthNonce(): string =
 
 proc OauthSignature(xAPI: XAPI, httpMethod: string, endpoint: string,
     text: string, oAuthNonce: string, timeStamp: int): string =
-  # Follow https://developer.x.com/en/docs/authentication/oauth-1-0a/creating-a-signature
-  var outputString: string =
+  ## Follow https://developer.x.com/en/docs/authentication/oauth-1-0a/creating-a-signature
+  let outputString: string =
     fmt"{httpMethod}&" &
     &"{percentEncode(endpoint)}&"
 
@@ -38,12 +38,11 @@ proc OauthSignature(xAPI: XAPI, httpMethod: string, endpoint: string,
 
   var signatureBase = outputString & paramString
 
-
   signatureBase = signatureBase.replace("+", "%20")
   signatureBase = signatureBase.replace("%7E", "~") # Don't encode ~
 
 
-  var signingKey: string = fmt"{xAPI.consumerSecret}&{xAPI.tokenSecret}"
+  let signingKey: string = fmt"{xAPI.consumerSecret}&{xAPI.tokenSecret}"
 
   let hmac = sha1.hmac(signingKey, signatureBase)
   result = base64.encode(hmac.data)
@@ -51,9 +50,9 @@ proc OauthSignature(xAPI: XAPI, httpMethod: string, endpoint: string,
 
 proc generateOauthAuthString*(xapi: XAPI, endpoint: string,
     content: string): string =
-  var oauthNonce: string = OauthNonce()
-  var timeStamp: int = toInt(epochTime())
-  var oauthSignature: string = OauthSignature(xApi, "POST", endpoint, content,
+  let oauthNonce: string = OauthNonce()
+  let timeStamp: int = toInt(epochTime())
+  let oauthSignature: string = OauthSignature(xApi, "POST", endpoint, content,
       oauthNonce, timeStamp)
 
   result =

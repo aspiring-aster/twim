@@ -1,4 +1,5 @@
 import ../src/twim
+import std/httpclient
 
 when isMainModule:
 
@@ -14,6 +15,12 @@ when isMainModule:
   # This is the Authentication Access Secret
   const TOKEN_SECRET: string = "TOKENSECRET"
 
-  const xCli: XAPI = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET)
-  let res: string = xCli.PostTextTweet("Hello from twim!")
-  echo res
+  # This is the Bearer Token. Needed for oauth 2.0
+  const BEARER: string = "BEARERTOKEN"
+
+  const xCli: XAPI = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN,
+      TOKEN_SECRET, BEARER)
+
+  let res: Response = xCli.PostTextTweet("Hello from twim!")
+
+  echo res.body
