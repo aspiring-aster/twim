@@ -2,7 +2,7 @@
 
 A X(Formally known as Twitter) API wrapper library for Nim. Inspired by [Tweepy](https://www.tweepy.org/) and [twitter.nim](https://github.com/snus-kin/twitter.nim).
 
-Be aware I only have free-tier API access to the X API so I will only develop for those endpoints.
+Be aware I only have free-tier API access to the X API so I will only develop for those [endpoints](https://developer.x.com/en/docs/x-api/migrate/x-api-endpoint-map).
 
 This uses OAuth 1.0a.
 
@@ -49,12 +49,6 @@ Look at the [OMORI upscale bot](https://github.com/aspiring-aster/omori-upscale-
 
 ## RoadMap:
 
-- [ ] Add support for /tweets endpoints
-- [ ] Add support for quote tweets
-- [ ] Add suport for liking_users
-- [ ] Add support for liked_tweets
-- [ ] Add support for mentions
-- [ ] Add get for users
-- [ ] Support for /spaces endpoint
-- [ ] And a bunch of other stuff listed [here](https://developer.x.com/en/portal/products/free)
-
+- Look at the [GitHub Project](https://github.com/users/aspiring-aster/projects/1?query=is%3Aopen+sort%3Aupdated-desc)
+- All progress will be on  [unstable](https://github.com/aspiring-aster/twim/tree/unstable) until the issue is completed
+- If there's any feature you'd like to see, please submit an issue 😄
