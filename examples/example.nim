@@ -1,19 +1,19 @@
-import ../src/twim
+import twim
 
 when isMainModule:
 
   # This is API Key
-  const CONSUMER_KEY: string = "CONSUMERKEY"
+  const CONSUMER_KEY = "CONSUMERKEY"
 
   # This is the API secret key
-  const CONSUMER_SECRET: string = "CONSUMERSECRET"
+  const CONSUMER_SECRET = "CONSUMERSECRET"
 
   # This is the Authentication Access Token
-  const ACCESS_TOKEN: string = "ACCESSTOKEN"
+  const ACCESS_TOKEN = "ACCESSTOKEN"
 
   # This is the Authentication Access Secret
-  const TOKEN_SECRET: string = "TOKENSECRET"
+  const TOKEN_SECRET = "TOKENSECRET"
 
-  const xCli: XAPI = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET)
-  let res: string = xCli.PostTextTweet("Hello from twim!")
+  const xCli = newXAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET)
+  let res = xCli.PostTextTweet("Hello from twim!")
   echo res
